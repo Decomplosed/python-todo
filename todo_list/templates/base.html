@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,11 +17,7 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
-    <style>
-      .container {
-        margin-top: 30px;
-      }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
 
     <title>{% block title %}To-Do Python App{% endblock %}</title>
   </head>
@@ -44,12 +42,13 @@
             <a class="nav-link" href="{% url 'about' %}">About</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" method="POST">
+          {% csrf_token %}
           <input
             class="form-control mr-sm-2"
             type="search"
             placeholder="To-Do Item"
-            aria-label="Search"
+            name="item"
           />
           <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">
             Add To List
