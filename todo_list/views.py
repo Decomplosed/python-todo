@@ -32,3 +32,10 @@ def complete(request, list_id):
 		item.save()
 		messages.success(request, ('Item has been completed!'))
 		return redirect('home')
+
+def uncomplete(request, list_id):
+		item = List.objects.get(pk=list_id)
+		item.completed = False
+		item.save()
+		messages.success(request, ('Item marked back as uncomplete!'))
+		return redirect('home')
