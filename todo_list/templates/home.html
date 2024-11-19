@@ -24,13 +24,13 @@
             {% if things.completed %}
                 <tr class='table-secondary'>
                     <td class='striker'>{{things.item}}</td>
-                    <td><center>{{things.completed}}</center></td>
+                    <td><center>Uncompleted</center></td>
                     <td><center><a href="{% url 'delete' things.id %}">Delete</a></center></td>
                 </tr>
             {% else %}
                 <tr>
                     <td>{{things.item}}</td>
-                    <td><center>{{things.completed}}</center></td>
+                    <td><center><a href="{% url 'complete' things.id %}">Completed</a></center></center></td>
                     <td><center><a href="{% url 'delete' things.id %}">Delete</a></center></td>
                 </tr>
             {% endif %}

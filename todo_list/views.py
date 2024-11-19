@@ -25,3 +25,10 @@ def delete(request, list_id):
 		item.delete()
 		messages.success(request, ('Item has been deleted!'))
 		return redirect('home')
+
+def complete(request, list_id):
+		item = List.objects.get(pk=list_id)
+		item.completed = True
+		item.save()
+		messages.success(request, ('Item has been completed!'))
+		return redirect('home')
