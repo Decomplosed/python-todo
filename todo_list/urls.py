@@ -6,5 +6,6 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('delete/<list_id>', views.delete, name='delete'),
     path('complete/<list_id>', views.complete, name='complete'),
-    path('uncomplete/<list_id>', views.uncomplete, name='uncomplete')
+    path('uncomplete/<list_id>', views.uncomplete, name='uncomplete'),
+    path('edit/<list_id>', views.edit, name='edit')
 ]
